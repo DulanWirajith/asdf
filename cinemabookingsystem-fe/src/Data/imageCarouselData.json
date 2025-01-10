@@ -1,0 +1,8 @@
+{
+    "slides": [
+        {"src" : "/assets/images/1st.jpg" , "alt": "1st image"},
+        {"src" : "/assets/images/2nd.webp" , "alt": "2nd image"},
+        {"src" : "/assets/images/3rd.webp" , "alt": "3rd image"},
+        {"src" : "/assets/images/4th.webp" , "alt": "4th image"}
+    ]
+}

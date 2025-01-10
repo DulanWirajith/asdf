@@ -1,0 +1,37 @@
+.signcontainer {
+  height: 100vh;
+  background-color: #2d1b5f;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.admin {
+  background-color: #f44336;
+}
+
+.user {
+  background-color: #008cba;
+}
+
+.wrapper {
+  margin-top: 150px;
+  width: 200px;
+  height: 200px;
+  padding: 2rem 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}

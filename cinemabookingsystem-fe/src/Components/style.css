@@ -1,0 +1,48 @@
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+form select,
+form input,
+form button {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.seat-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.seat {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  user-select: none;
+}
+
+.seat.selected {
+  background-color: #4caf50;
+  color: white;
+}
+
+.seat.occupied {
+  background-color: #d9534f;
+  color: white;
+  cursor: not-allowed;
+}
+
+.seat:hover:not(.occupied):not(.selected) {
+  background-color: #ddd;
+}
