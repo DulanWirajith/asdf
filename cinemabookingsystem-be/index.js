@@ -13,7 +13,6 @@ dotenv.config();
 
 const app = express();
 
-//Middleware
 app.use(
   cors({
     origin: "*",
@@ -37,13 +36,12 @@ const io = new Server(server, {
 io.on("connection", (socket) => {
   console.log("A user connected:", socket.id);
 
-  socket.on("newBooking", (data) => {
-    console.log("New booking received:", data);
-    io.emit("updateBookings", data); // Broadcast to all clients
-  });
-
   socket.on("disconnect", () => {
     console.log("User disconnected:", socket.id);
+  });
+
+  socket.on("error", (error) => {
+    console.error("Socket error:", error);
   });
 });
 
@@ -53,11 +51,12 @@ mongoose
   )
   .then(() => {
     console.log("Connected to the Database!!");
-    //Create Server
-    app.listen(3000, () => {
+    server.listen(3000, () => {
       console.log("Server is running on port 3000");
     });
   })
   .catch(() => {
     console.log("Connection Failed!!");
   });
+
+  export default io;

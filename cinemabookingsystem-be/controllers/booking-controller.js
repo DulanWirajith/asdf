@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import Bookings from "../models/Bookings-model.js";
 import Movie from "../models/Movie-model.js";
 import User from "../models/User-model.js";
+import io from "./../index.js"; 
 
 export const newBooking = async (req, res, next) => {
   const { movie, date, time, seatNumber, user } = req.body;
@@ -47,6 +48,13 @@ export const newBooking = async (req, res, next) => {
   if (!booking) {
     return res.status(500).json({ message: "Unable to create a booking" });
   }
+
+  io.emit("newBooking", {
+    movie,
+    user,
+    date,
+    bookingId: booking._id,
+  });
 
   return res.status(201).json({ booking });
 };
