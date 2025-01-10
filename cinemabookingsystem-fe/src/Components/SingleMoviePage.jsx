@@ -3,6 +3,7 @@ import style from "./singlemoviepage.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import socket from "./../../socket";
 
 export default function SingleMoviePage() {
   const { id } = useParams();
@@ -12,6 +13,23 @@ export default function SingleMoviePage() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [seats, setSeats] = useState([]);
+
+  const fetchAvailableSeats = (movieId, date, time) => {
+    axios
+      .get("http://localhost:3000/movie/available-seats", {
+        params: {
+          movieId: movieId,
+          date: date,
+          time: time,
+        },
+      })
+      .then((response) => {
+        setSeats(response.data.seats);
+      })
+      .catch((error) => {
+        console.error("Error fetching available seats:", error);
+      });
+  };
 
   const handleSeatClick = (seatId) => {
     const seat = seats.find((seat) => seat.id === seatId);
@@ -54,6 +72,7 @@ export default function SingleMoviePage() {
       })
       .then((response) => {
         alert("Booking successful!");
+        setSelectedSeats("");
       })
       .catch((error) => {
         console.error("Error making booking:", error);
@@ -74,6 +93,17 @@ export default function SingleMoviePage() {
       })
       .catch((error) => console.error("Error fetching movie details:", error));
   }, [id]);
+
+  useEffect(() => {
+    socket.on("newBooking", (data) => {
+      console.log("New Booking Received:", data);
+      fetchAvailableSeats(id, selectedDate, selectedTime);
+    });
+
+    return () => {
+      socket.off("newBooking");
+    };
+  }, [id, selectedDate, selectedTime]);
 
   const generateDates = (start, end) => {
     const datesArray = [];
@@ -97,41 +127,16 @@ export default function SingleMoviePage() {
     setSelectedDate(selectedDate);
 
     if (selectedDate && selectedTime) {
-      axios
-        .get("http://localhost:3000/movie/available-seats", {
-          params: {
-            movieId: id,
-            date: selectedDate,
-            time: selectedTime,
-          },
-        })
-        .then((response) => {
-          setSeats(response.data.seats);
-        })
-        .catch((error) =>
-          console.error("Error fetching available seats:", error)
-        );
+      fetchAvailableSeats(id, selectedDate, selectedTime);
     }
   };
 
   const handleTimeChange = (e) => {
-    setSelectedTime(e.target.value);
+    const selectedTime = e.target.value;
+    setSelectedTime(selectedTime);
 
-    if (selectedDate && e.target.value) {
-      axios
-        .get("http://localhost:3000/movie/available-seats", {
-          params: {
-            movieId: id,
-            date: selectedDate,
-            time: e.target.value,
-          },
-        })
-        .then((response) => {
-          setSeats(response.data.seats);
-        })
-        .catch((error) =>
-          console.error("Error fetching available seats:", error)
-        );
+    if (selectedDate && selectedTime) {
+      fetchAvailableSeats(id, selectedDate, selectedTime);
     }
   };
 
