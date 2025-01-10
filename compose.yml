@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./cinemabookingsystem-be
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./cinemabookingsystem-be:/app
+
+  frontend:
+    build:
+      context: ./cinemabookingsystem-fe
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./cinemabookingsystem-fe:/app
