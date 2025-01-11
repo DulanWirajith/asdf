@@ -12,35 +12,34 @@ export default function NowShowingPage() {
       .then((response) => {
         setNowShowMovies(response.data.movies);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error("Error fetching movies:", error));
   }, []);
 
   return (
-    <div>
-      <div className={style.nowshowing}>
-        <h1>NOW SHOWING</h1>
-        <div className={style.gridContainer}>
-          {nowShowMovies.length > 0 &&
-            nowShowMovies.map((movie, index) => (
-              <div key={index} className={style.card}>
-                <Link to={`/singlemoviepage/${movie._id}`} className={style.link}>
-                  <img
-                    src={movie.nowshowingImage}
-                    alt={movie.title || "Movie Poster"}
-                    className={style.cardImg}
-                  />
-                </Link>
-                <button
-                  className={style.button}
-                  onClick={() =>
-                    console.log(`Buying tickets for ${movie.title}`)
-                  }
-                >
-                  Buy Tickets
-                </button>
-              </div>
-            ))}
-        </div>
+    <div className={style.nowshowing}>
+      <h1 className={style.heading}>NOW SHOWING</h1>
+      <div className={style.gridContainer}>
+        {nowShowMovies.length > 0 ? (
+          nowShowMovies.map((movie, index) => (
+            <div key={index} className={style.card}>
+              <Link to={`/singlemoviepage/${movie._id}`} className={style.link}>
+                <img
+                  src={movie.nowshowingImage}
+                  alt={movie.title || "Movie Poster"}
+                  className={style.cardImg}
+                />
+              </Link>
+              <button
+                className={style.button}
+                onClick={() => console.log(`Buying tickets for ${movie.title}`)}
+              >
+                Buy Tickets
+              </button>
+            </div>
+          ))
+        ) : (
+          <p className={style.noMovies}>No movies currently showing</p>
+        )}
       </div>
     </div>
   );
