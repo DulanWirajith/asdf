@@ -106,7 +106,7 @@ export default function AddMoviesPage() {
               />
             </div>
             <div className={styles.formgroup}>
-              <label htmlFor="nowShowing">Now Showing Movie:</label>
+              <label htmlFor="nowShowing">Now Showing Movie Image:</label>
               <input
                 id="nowShowing"
                 className={styles.input}
