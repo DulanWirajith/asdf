@@ -34,9 +34,9 @@ export default function SignUpUser() {
   };
 
   return (
-    <div className={style.signcontainer}>
+    <div>
       <HomePageHeader />
-      <center>
+      <div  className={style.signcontainer}>
         <div className={style.wrapper}>
           <h1>Sign Up User</h1>
           <input type="username" placeholder="Username" name="Username" />
@@ -51,7 +51,7 @@ export default function SignUpUser() {
             Not a member? <Link to="/signinadminanduser">Log Now</Link>
           </div>
         </div>
-      </center>
+      </div>
     </div>
   );
 }

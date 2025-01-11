@@ -34,8 +34,9 @@ export default function SignUpAdmin() {
   };
 
   return (
-    <div className={style.signcontainer}>
+    <div>
       <HomePageHeader />
+      <div  className={style.signcontainer}>
       <center>
         <div className={style.wrapper}>
           <h1>Sign Up Admin</h1>
@@ -53,6 +54,7 @@ export default function SignUpAdmin() {
           </div>
         </div>
       </center>
+      </div>
     </div>
   );
 }

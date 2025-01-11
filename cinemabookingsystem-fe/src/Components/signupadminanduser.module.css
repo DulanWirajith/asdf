@@ -1,0 +1,82 @@
+/* Container that holds everything */
+.signcontainer {
+  height: 100vh;
+  background-color: #f4f7fc; /* Subtle background color */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px; /* Space for header */
+}
+
+/* Wrapper for content */
+.wrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+
+/* Heading styling */
+.wrapper h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+/* Button styling */
+.button {
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+/* Admin button style */
+.admin {
+  background-color: #f44336;
+}
+
+.admin:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+/* User button style */
+.user {
+  background-color: #008cba;
+}
+
+.user:hover {
+  background-color: #0277b6; /* Darker blue on hover */
+}
+
+/* Signup prompt styling */
+.signupPrompt {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .wrapper {
+    width: 90%;
+    margin-top: 30px; /* Reduces margin on smaller screens */
+  }
+
+  .button {
+    font-size: 14px; /* Smaller font size on smaller screens */
+  }
+}
