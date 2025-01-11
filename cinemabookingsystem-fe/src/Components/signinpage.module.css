@@ -1,54 +1,102 @@
+/* Main container */
 .signcontainer {
   height: 100vh;
-  background-color: #2d1b5f;
+  background-color: #f4f7fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 100px;  /* Adjust this value to match the height of your fixed header */
+  padding-left: 20px;  /* Optional: Add padding if you want some space on the left side */
+  padding-right: 20px; /* Optional: Add padding if you want some space on the right side */
 }
 
+/* The wrapper containing the form */
 .wrapper {
-  margin-top: 30px;
-  width: 350px;
-  height: 550px;
-  padding: 2rem 2rem;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
   background-color: #fff;
   border-radius: 10px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
 }
 
+/* Title of the form */
 .wrapper h1 {
   font-size: 2rem;
-  color: black;
-  margin-bottom: 3rem;
+  color: #333;
+  margin-bottom: 2rem;
 }
 
+/* Input fields */
 .wrapper input {
-  width: 90%;
-  height: 20px;
-  outline: none;
-  border: 1px solid #fff;
-  padding: 12px 20px;
-  margin-bottom: 30px;
-  border-radius: 20px;
-  background: #e4e4e4;
-}
-
-.wrapper button {
+  width: 100%;
+  padding: 12px;
   font-size: 1rem;
-  margin-top: 1.8rem;
-  margin-bottom: 30px;
-  padding: 10px 0;
-  border-radius: 20px;
-  outline: none;
-  border: none;
-  width: 90%;
-  color: #fff;
-  cursor: pointer;
-  background: #0726ed;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  margin-bottom: 1.5rem;
+  transition: border 0.3s ease;
 }
 
-.wrapper button:hover {
-  background: rgba(17, 107, 143, 0.877);
-}
-
+/* Focus state for inputs */
 .wrapper input:focus {
-  border: 1px solid rgb(192, 192, 192);
+  outline: none;
+  border-color: #0726ed;
+  background-color: #fff;
+}
+
+/* Sign In button */
+.wrapper button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background-color: #0726ed;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover state for the button */
+.wrapper button:hover {
+  background-color: #0545b4;
+}
+
+/* Active state for the button */
+.wrapper button:active {
+  background-color: #0726ed;
+}
+
+/* Register link */
+.wrapper .registerLink {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+/* Link style */
+.wrapper .registerLink a {
+  color: #0726ed;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hover effect on the link */
+.wrapper .registerLink a:hover {
+  text-decoration: underline;
+}
+
+/* Fixed Header Styles */
+.homePageHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #0726ed;
+  padding: 15px 0;
+  color: white;
+  z-index: 1000;
 }

@@ -37,8 +37,9 @@ export default function SignInAdminPage() {
   };
 
   return (
-    <div className={style.signcontainer}>
+    <div>
       <HomePageHeader />
+      <div className={style.signcontainer}>
       <center>
         <div className={style.wrapper}>
           <h1>Sign In Admin</h1>
@@ -52,6 +53,7 @@ export default function SignInAdminPage() {
           </div>
         </div>
       </center>
+      </div>
     </div>
   );
 }

@@ -22,9 +22,7 @@ export default function SignInUserPage() {
         localStorage.setItem("role", data.role);
         localStorage.setItem("id", data.id);
         localStorage.setItem("email", data.email);
-        alert("Login successful!");
-        window.location.href =
-          role === "user" ? "/homepage" : "/admindashboard";
+        window.location.href = data.role === "User" ? "/homepage" : "/admindashboard";
       } else {
         alert(data.message);
       }
@@ -35,31 +33,21 @@ export default function SignInUserPage() {
   };
 
   return (
-    <div className={style.signcontainer}>
+    <div>
       <HomePageHeader />
-      <center>
+      <div className={style.signcontainer}>
         <div className={style.wrapper}>
           <h1>Sign In User</h1>
           <input type="email" placeholder="Email" name="Email" />
           <input type="password" placeholder="Password" name="Password" />
-          <button type="submit">
-            <Link
-              to="/homepage"
-              style={{
-                textDecoration: "none",
-                color: "white",
-              }}
-            >
-              <button type="button" onClick={() => handleLogin()}>
-                Sign In
-              </button>
-            </Link>
+          <button type="button" onClick={handleLogin}>
+            Sign In
           </button>
-          <div>
+          <div className={style.registerLink}>
             Not a member? <Link to="/signupadminanduser">Register Now</Link>
           </div>
         </div>
-      </center>
+      </div>
     </div>
   );
 }

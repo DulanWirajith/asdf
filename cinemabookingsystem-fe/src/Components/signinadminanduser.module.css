@@ -1,37 +1,63 @@
 .signcontainer {
   height: 100vh;
-  background-color: #2d1b5f;
+  background-color: #f4f7fc; /* Soft background */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 80px; /* Space for header */
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  box-sizing: border-box;
+}
+
+.wrapper h1 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 2rem;
 }
 
 .button {
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 15px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 10px;
-  margin-bottom: 40px;
+  margin: 10px 0;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 8px;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
 
 .admin {
   background-color: #f44336;
 }
 
+.admin:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
 .user {
   background-color: #008cba;
 }
 
-.wrapper {
-  margin-top: 150px;
-  width: 200px;
-  height: 200px;
-  padding: 2rem 2rem;
-  background-color: #fff;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+.user:hover {
+  background-color: #0277b6; /* Darker blue on hover */
+}
+
+.signupPrompt {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
 }
