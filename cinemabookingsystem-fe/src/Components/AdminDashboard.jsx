@@ -1,7 +1,16 @@
+import { useState } from "react";
 import styles from "./homepageheader.module.css";
 import { Link } from "react-router-dom";
 
 export default function AdminDashboard() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("email");
+    localStorage.removeItem("role");
+    localStorage.removeItem("id");
+    setIsLoggedIn(false);
+  };
   return (
     <div>
       <header>
@@ -34,9 +43,21 @@ export default function AdminDashboard() {
               <span>User Profile</span>
             </Link>
             <span>|</span>
-            <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-              <span>Logout</span>
-            </Link>
+            <button
+              onClick={logout}
+              style={{
+                background: "none",
+                border: "none",
+                color: "white",
+                cursor: "pointer",
+                fontSize: "14px",
+                fontWeight: "bold",
+              }}
+            >
+              <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                <span>Logout</span>
+              </Link>
+            </button>
           </div>
         </div>
       </header>
