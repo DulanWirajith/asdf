@@ -59,4 +59,4 @@ mongoose
     console.log("Connection Failed!!");
   });
 
-  export default io;
+  export { app, io };

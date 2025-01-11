@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import Bookings from "../models/Bookings-model.js";
 import Movie from "../models/Movie-model.js";
 import User from "../models/User-model.js";
-import io from "./../index.js"; 
+import {io} from "./../index.js"; 
 import nodemailer from "nodemailer";
 import { google } from "googleapis";
 import dotenv from "dotenv";
