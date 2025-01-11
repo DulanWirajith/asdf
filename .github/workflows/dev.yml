@@ -25,11 +25,11 @@ jobs:
 
       - name: Build Backend Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/cinemabookingsystem-backend:latest ./cinemabookingsystem-be
+          docker build -t sachithratest/cinemabookingsystem-backend:latest ./cinemabookingsystem-be
 
       - name: Push Backend Docker Image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/cinemabookingsystem-backend:latest
+          docker push sachithratest/cinemabookingsystem-backend:latest
 
   build-and-push-frontend:
     name: Build and Push Frontend
@@ -47,8 +47,8 @@ jobs:
 
       - name: Build Frontend Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/cinemabookingsystem-frontend:latest ./cinemabookingsystem-fe
+          docker build -t sachithratest/cinemabookingsystem-frontend:latest ./cinemabookingsystem-fe
 
       - name: Push Frontend Docker Image
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/cinemabookingsystem-frontend:latest
+          docker push sachithratest/cinemabookingsystem-frontend:latest
